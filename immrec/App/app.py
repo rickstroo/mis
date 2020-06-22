@@ -25,7 +25,35 @@ def search(): #searching for patients in FHIR server
 @app.route('/immunization', methods = ["GET", "POST"])
 def immunization(): #creating Immunization Resource from user input
     response = getPatientResourceByName(url, HEADERS, full_name['f'], full_name['l'])
-   
+    patients = ''
+    json_data = json.loads(response.text)
+    patients = json_data['entry']
+    dict = {}
+    for patient in patients: #incase there is more than one patient resource outputted
+        resource = patient['resource']
+        nameList = resource['name']
+        dict['given'] = nameList[1]['given'][0]
+        dict['family'] = nameList[0]['family']
+        dob = resource['birthDate']
+        dict['birthtime'] = dob
+        gender = resource['gender']
+        dict['gender'] = gender
+        address = resource['address'][0]['line'][0]
+        dict['address'] = address
+        state = resource['address'][0]['state']
+        dict['state'] = state
+        city = resource['address'][0]['city']
+        dict['city'] = city
+        zip = resource['address'][0]['postalCode']
+        dict['postalcode'] = zip
+        print(dict['birthtime'])#printed out on command line for checks
+        print(dict['given'])
+        print(dict['family'])
+        print(dict['gender'])
+        print(dict['address'])
+        print(dict['state'])
+        print(dict['city'])
+        print(dict['postalcode'])
 
     ###########
 
