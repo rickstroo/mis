@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="stylesheet" type = "text/css" href="{{ url_for('static',filename='styles/styles.css') }}">
+    <link rel="stylesheet" type = "text/css" href="{{ url_for('static',filename='styles/styles_immun.css') }}">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <script src="{{ url_for('static',filename='styles/scripts.js') }}"></script>
     <meta charset="UTF-8">
@@ -10,22 +10,52 @@
 <body>
     <div id="mainPicture">
         <!--<div class="picture">-->
-        <div id="headerTitle">{{fname}} {{lname}}</div>
+        <div id="headerTitle" style="color:black;font-size:18px;">COVID-19 Immunization for:</div>
+        <div id="headerTitle">{{fname}} {{lname}}</div><br>
         <div id="headerSubtext">Admission (999999)</div>
 
     </div>
+   
 
+   
     <div class="contentBox">
         <div class="innerBox">
             <div class="mainbody">
+                <h1>Answer the following:</h1>
                 <form method="post">
-                    
+                    <label for="patientinfoconfirm">Patient Information Confirmed?*</label>
+                    <select id="patientinfoconfirm" name="confirm" size="2">
+                        <option value="no">No</option>
+                        <option value="yes">Yes</option>
+                    </select><br><br>
+                    <label for="educationconfirm">Patient Received Education?*</label>
+                    <select id="educationconfirm" name="education" size="2">
+                        <option value="no">No</option>
+                        <option value="yes">Yes</option>
+                    </select><br><br>
+                    <label for="status">Vaccination Status:*</label>
+                    <select id="status" name="vstatus" size="2">
+                        <option value="no">No</option>
+                        <option value="yes">Yes</option>
+                    </select><br><br>
+                    <label for="site">Site of Vaccination</label>
+                    <select id="site" name="vsite" size="3">
+                        <option value="no">Right arm</option>
+                        <option value="yes">Left arm</option>
+                        <option value="yes">Other</option>
+                    </select><br><br>
+                    <label for="reaction">Reaction Reported?*</label>
+                    <select id="reaction" name="vreact" size="2">
+                        <option value="no">No</option>
+                        <option value="yes">Yes</option>
+                    </select><br><br><br>
+                    <textarea name="notes" style="width:400px; height:50px;"placeholder="Enter notes"></textarea>
                     <br><br><br><br>
                     <button type="submit" formmethod="post" class="custom-submit-btn" name="query">Create Immunization Record</button>
                 </form>
             </div>
         </div>
     </div>
-    
+
 </body>
 </html>
