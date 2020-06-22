@@ -46,20 +46,17 @@ def immunization(): #creating Immunization Resource from user input
         dict['city'] = city
         zip = resource['address'][0]['postalCode']
         dict['postalcode'] = zip
-        print(dict['birthtime'])#printed out on command line for checks
-        print(dict['given'])
-        print(dict['family'])
-        print(dict['gender'])
-        print(dict['address'])
-        print(dict['state'])
-        print(dict['city'])
-        print(dict['postalcode'])
+        #print(dict['birthtime'])#printed out on command line for checks
 
     ###########
 
     ###########
 
-    return render_template("immunization.html", fname = full_name['f'], lname = full_name['l'])
+    return render_template("immunization.html", fname = dict['given'], lname = dict['family'],address=dict['address'], city=dict['city'],
+                                       state=dict['state'],
+                                       postalcode=dict['postalcode'],
+                                       birthtime=dict['birthtime'],
+                                       gender=dict['gender'])
 
 
 def getPatientResourceByName(url, headers, fname, lname):
@@ -67,6 +64,19 @@ def getPatientResourceByName(url, headers, fname, lname):
     url+=("/?"+"given"+"="+fname+ "&"+"family"+"="+lname)
     response = requests.get(url=url, headers=headers)
     return response
+
+
+#appDict = {
+#  'resourceType': 'Immunization'
+#}
+#app_json = json.dumps(appDict)
+#print(app_json)
+
+def postNewImmunization(URL, headers, payload):
+    response = requests.post(url=URL,headers=headers,data=payload)
+    return response
+#response = postNewImmunization(url, HEADERS, payload)
+#print(response.text, ": ", response.status_code)
 
 
 if __name__ == '__main__':
