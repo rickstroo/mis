@@ -23,33 +23,44 @@
             <div class="mainbody">
                 <h1>Answer the following:</h1>
                 <form method="post">
-                    <label for="patientinfoconfirm">Patient Information Confirmed?*</label>
-                    <select id="patientinfoconfirm" name="confirm" size="2">
-                        <option value="no">No</option>
-                        <option value="yes">Yes</option>
-                    </select><br><br>
+                    <label for="patientinfoconfirm">Is above Patient Information Confirmed?*</label>
+                        <input type = 'radio' name = 'patientinfoconfirm' value = 'Yes' required> Yes    
+                        <input type = 'radio' name = 'patientinfoconfirm' value = 'No'> No<br>
+                                         
+                    </select><br>
                     <label for="educationconfirm">Patient Received Education?*</label>
-                    <select id="educationconfirm" name="education" size="2">
-                        <option value="no">No</option>
-                        <option value="yes">Yes</option>
-                    </select><br><br>
+                        <input type = 'radio' name = 'educationconfirm' value = 'Yes'> Yes    
+                        <input type = 'radio' name = 'educationconfirm' value = 'No'> No<br>
+                    </select><br>
+
                     <label for="status">Vaccination Status:*</label>
-                    <select id="status" name="vstatus" size="2">
-                        <option value="no">No</option>
-                        <option value="yes">Yes</option>
+                    <select id="status" name="vstatus" size="1" required>
+                        <option value="no">Not complete</option>
+                        <option value="yes">Complete</option>
+                        <option value="no">Error-Found</option>
                     </select><br><br>
-                    <label for="site">Site of Vaccination</label>
-                    <select id="site" name="vsite" size="3">
+
+                    <label for="site">Site of Vaccination:</label>             
+                    <select id="site" name="vsite" size="1">
                         <option value="no">Right arm</option>
                         <option value="yes">Left arm</option>
-                        <option value="yes">Other</option>
+                        <option value="yes">Other location</option>
+                        <option value="yes">N/A</option>
                     </select><br><br>
+
+
                     <label for="reaction">Reaction Reported?*</label>
-                    <select id="reaction" name="vreact" size="2">
-                        <option value="no">No</option>
-                        <option value="yes">Yes</option>
-                    </select><br><br><br>
-                    <textarea name="notes" style="width:400px; height:50px;"placeholder="Enter notes"></textarea>
+                        <input type = 'radio' name = 'reaction' value = 'Yes' required> Yes    
+                        <input type = 'radio' name = 'reaction' value = 'No'> No<br><br>
+                   
+                    <label for="reactionTrue">If yes, what reaction?</label>
+                
+                    </textarea><br>
+                    <textarea name="reactionNotes" style = "width:300px; height:40px;" placeholder="Vaccine Reaction"></textarea><br><br>
+                
+                    <label for="otherNotes">Other additional notes:</label><br>
+                    <textarea name="notes" style="width:600px; height:80px;"placeholder="Enter notes"></textarea>
+                    
                     <br><br><br><br>
                     <button type="submit" formmethod="post" class="custom-submit-btn" name="query">Create Immunization Record</button>
                 </form>
