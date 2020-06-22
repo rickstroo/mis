@@ -1,0 +1,145 @@
+/*https://www.w3schools.com/howto/howto_css_style_header.asp*/
+body {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    font-family: "Adobe Garamond Pro Bold", Georgia, "Times New Roman", Times, serif;
+    font-size: 13px;
+    color: royalblue;
+    background-color: black;
+    background-image: url(flames.jpg);
+    background-size: 880px 850px;
+    background-repeat: repeat-x;
+}
+h1{
+    color: black;
+    text-align:center;
+
+}
+* {
+    margin: 0 auto 0 auto;
+    text-align: left;
+}
+
+
+#page {
+    display: block;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    width: 350px;
+}
+
+   
+     
+#mainPicture {
+    width: 770px;
+    height: 145px;
+    background-color: #FFFFFF;
+}
+
+    #mainPicture .picture {
+        position: relative;
+        width: 750px;
+        height: 125px;
+        top: 10px;
+        background-color: #FFFFFF;
+        margin-left: 10px;
+    }
+
+#headerTitle {
+    position: relative;
+    top: 30px;
+    left: 40px;
+    font-size: 40px;
+    color: black;
+    font-family: "Adobe Garamond Pro Bold", Georgia, "Times New Roman", Times, serif;
+}
+
+#headerSubtext {
+    position: relative;
+    top: 30px;
+    left: 50px;
+    font-size: 25px;
+    color: royalblue;
+    font-family: "Adobe Garamond Pro Bold", Georgia, "Times New Roman", Times, serif;
+}
+
+
+.contentBox 
+{
+    width: 670px;
+    height: 400px;
+    background-color: #FFFFFF;
+    margin-top: 10px;
+}
+
+ .contentBox .innerBox 
+ {
+        position: relative;
+        width: 650px;
+        height: 380px;
+        top: 10px;
+        margin-left: 10px;
+        background-image: url(content_back.png);
+        background-repeat: repeat-x;
+        padding-bottom: 35px;
+ }
+
+.mainbody {
+    padding: 10px;
+    font-family: Palatino;
+}
+
+input[type="file"] {
+    position: absolute;
+    left: -99999rem;
+}
+
+/*https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way*/
+/*https://www.w3docs.com/snippets/css/how-to-style-html-file-input-button-with-css.html*/
+.custom-file-input + label {
+    display: inline-block;
+    padding: 12px 18px;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: #6997DB;
+    font-size: 13px;
+    font-weight: bold;
+    color: black;
+}
+input[type=submit] {
+    display: inline-block;
+    border-radius: 1px;
+    background-color: #EDF1FF;
+    font-size: 11px;
+    font-weight: bold;
+}
+option:hover {
+    background-color: #ddd;
+}
+
+.custom-select-list {
+    background-color: #F5F6FC;
+    padding: 2px 3px;
+    display: inline-block;
+}
+#footer {
+    width: 670px;
+    height: 16px;
+   
+    text-align: center;
+    font-size: 9px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #386172;
+    padding-top: 5px;
+}
+hr {
+	border-top: 1px dotted #000;
+}
+.results {
+    font-weight: bold;
+}
+html, body {
+    text-align: center;
+}

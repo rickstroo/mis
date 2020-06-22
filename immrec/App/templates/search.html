@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" type = "text/css" href="{{ url_for('static',filename='styles/styles.css') }}">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="{{ url_for('static',filename='styles/scripts.js') }}"></script>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div id="mainPicture">
+        <!--<div class="picture">-->
+        <div id="headerTitle">COVID-19 Immunizations on FHIR</div>
+        <div id="headerSubtext">Team Great Lakes</div>
+    
+    </div>
+
+    <div class="contentBox">
+        <div class="innerBox">
+            <div class="mainbody">
+                <h1>Welcome, NurseXXXX!</h1><br><br>
+                <h2>Search for registered patient</h2><br>
+                <form action="{{ url_for('search') }}" method="post">
+                    <label>Enter Patient Name:</label>
+                    <input type="text" placeholder="ex: John Smith" onfocus="this.placeholder = ''" id="name" name="name">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+        </div>
+</body>
+</html>

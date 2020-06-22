@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" type = "text/css" href="{{ url_for('static',filename='styles/styles.css') }}">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="{{ url_for('static',filename='styles/scripts.js') }}"></script>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div id="mainPicture">
+        <!--<div class="picture">-->
+        <div id="headerTitle">{{fname}} {{lname}}</div>
+        <div id="headerSubtext">Admission (999999)</div>
+
+    </div>
+
+    <div class="contentBox">
+        <div class="innerBox">
+            <div class="mainbody">
+                <form method="post">
+                    
+                    <br><br><br><br>
+                    <button type="submit" formmethod="post" class="custom-submit-btn" name="query">Create Immunization Record</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
