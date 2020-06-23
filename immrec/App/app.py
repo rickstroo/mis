@@ -1,11 +1,14 @@
 from flask import Flask, render_template, request, redirect, url_for
 import requests
 import json
+from collections import OrderedDict
+from io import StringIO
 app = Flask(__name__)
 
 wsgi_app = app.wsgi_app
 
 url = "http://hackathon.siim.org/fhir/Patient"
+urlv = "http://hackathon.siim.org/fhir/Immunization"
 API_ENDPOINT = "http://hackathon.siim.org/fhir/Patient"
 API_KEY = "c16ba109-3189-4c74-a013-479b1b00bfd4"
 HEADERS = {'content-type': 'application/json', 'apikey': API_KEY}
@@ -28,35 +31,37 @@ def immunization(): #creating Immunization Resource from user input
     patients = ''
     json_data = json.loads(response.text)
     patients = json_data['entry']
-    dict = {}
+    d = {}
     for patient in patients: #incase there is more than one patient resource outputted
         resource = patient['resource']
         nameList = resource['name']
-        dict['given'] = nameList[1]['given'][0]
-        dict['family'] = nameList[0]['family']
+        idd = resource['id'] #need to use this
+        d['given'] = nameList[1]['given'][0]
+        d['family'] = nameList[0]['family']
         dob = resource['birthDate']
-        dict['birthtime'] = dob
+        d['birthtime'] = dob
         gender = resource['gender']
-        dict['gender'] = gender
+        d['gender'] = gender
         address = resource['address'][0]['line'][0]
-        dict['address'] = address
+        d['address'] = address
         state = resource['address'][0]['state']
-        dict['state'] = state
+        d['state'] = state
         city = resource['address'][0]['city']
-        dict['city'] = city
+        d['city'] = city
         zip = resource['address'][0]['postalCode']
-        dict['postalcode'] = zip
+        d['postalcode'] = zip
         #print(dict['birthtime'])#printed out on command line for checks
 
-    ###########
 
     ###########
 
-    return render_template("immunization.html", fname = dict['given'], lname = dict['family'],address=dict['address'], city=dict['city'],
-                                       state=dict['state'],
-                                       postalcode=dict['postalcode'],
-                                       birthtime=dict['birthtime'],
-                                       gender=dict['gender'])
+    ###########
+
+    return render_template("immunization.html", fname = d['given'], lname = d['family'],address=d['address'], city=d['city'],
+                                       state=d['state'],
+                                       postalcode=d['postalcode'],
+                                       birthtime=d['birthtime'],
+                                       gender=d['gender'])
 
 
 def getPatientResourceByName(url, headers, fname, lname):
@@ -66,14 +71,8 @@ def getPatientResourceByName(url, headers, fname, lname):
     return response
 
 
-#appDict = {
-#  'resourceType': 'Immunization'
-#}
-#app_json = json.dumps(appDict)
-#print(app_json)
-
-def postNewImmunization(URL, headers, payload):
-    response = requests.post(url=URL,headers=headers,data=payload)
+def postNewImmunization(urlv, headers, payload):
+    response = requests.post(url=urlv,headers=headers,data=payload)
     return response
 #response = postNewImmunization(url, HEADERS, payload)
 #print(response.text, ": ", response.status_code)
