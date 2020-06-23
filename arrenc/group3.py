@@ -18,7 +18,7 @@ def getUser():
         patient_name = getNameFromPatient(patient_info)
         patient_id = getIdFromPatient(patient_info)
 
-        resp = make_response(redirect('/makeAppointment'))
+        resp = make_response(redirect('/getCounty'))
         resp.set_cookie('patient_name', patient_name)
         resp.set_cookie('patient_id', patient_id)
         return resp
@@ -26,46 +26,87 @@ def getUser():
     else:
         return render_template('getUser.html')
 
-@app.route('/makeAppointment', methods=['POST', 'GET'])
-def makeAppointment():
+@app.route('/getCounty', methods=['GET', 'POST'])
+def getCounty():
 
     if request.method == 'POST':
-
-        resp = make_response(redirect('/madeAppointment'))
-
-        day = request.form['day']
-        time = request.form['time']
-        resp.set_cookie('day', day)
-        resp.set_cookie('time', time)
+        
+        resp = make_response(redirect('/getDay'))
+        county = request.form['county']
+        resp.set_cookie('county', county)
 
         return resp
-
     else:
         name = request.cookies.get('patient_name')
 
-        # need function in fhir_utility to find available days/times by searching
-        # appointments in fhir
-        times = ['7:00AM', '7:30AM', '8:00AM', '8:30AM', '9:00AM',
-                '9:30AM', '10:00AM', '10:30AM', '11:00AM', '11:30AM',
-                '12:00PM', '12:30PM', '1:00PM', '1:30PM', '2:00PM',
-                '2:30PM', '3:00PM', '3:30PM', '4:00PM', '4:30PM',
-                '5:00PM', '5:30PM']
+        counties = ['Adams', 'Ashland', 'Baron', 'Bayfield', 'Brown', 'Buffalo', 'Burnett',
+                    'Calumet', 'Chippewa', 'Clark', 'Columbia', 'Crawford', 'Dane', 'Dodge',
+                    'Door', 'Douglas', 'Dunn', 'Eau Claire', 'Florence', 'Fond du Lac', 'Forest',
+                    'Grant', ' Green', 'Green Lake', 'Iowa', 'Iron', 'Jackson', 'Jefferson', 
+                    'Juneau', 'Kenosha', 'Kewaunee', 'La Crosse', 'Lafayette', 'Langlade',
+                    'Lincoln', ' Manitowoc', 'Marathon', ' Marinette', 'Marquette', 'Menonminee',
+                    'Milwaukee', 'Monroe', 'Oconto', 'Oneida', 'Outagamie', 'Ozaukee', 'Pepin',
+                    'Pierce', 'Polk', 'Portage', 'Price', 'Racine', 'Richland', 'Rock', 'Rusk',
+                    'Sauk', 'Sawyer', 'Shawano', 'Sheboygan', 'St. Croix', 'Taylor', 'Trempealeau',
+                    'Vernon', 'Vilas', 'Walworth', 'Washburn', 'Washinton', 'Waukesha', 'Waupaca',
+                    'Waushara', 'Winnebago', 'Wood']
+
+        return render_template('getCounty.html', name=name, counties=counties)
+
+@app.route('/getDay', methods=['GET', 'POST'])
+def getDay():
+    if request.method == 'POST':
+        
+        resp = make_response(redirect('/getTime'))
+        day = request.form['day']
+        resp.set_cookie('day', day)
+
+        return resp
+    else:
+        name = request.cookies.get('patient_name')
+
         days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
 
-        return render_template('makeAppointment.html', name=name,
-                                times=times, days=days)
+        return render_template('getDay.html', name=name, days=days)
+
+@app.route('/getTime', methods=['GET', 'POST'])
+def getTime():
+    if request.method == 'POST':
+        
+        resp = make_response(redirect('/madeAppointment'))
+        time = request.form['time']
+        resp.set_cookie('time', time)
+
+        return resp
+    else:
+        name = request.cookies.get('patient_name')
+        day = request.cookies.get('day')
+
+        times = getOpenAppointments(day)
+
+        return render_template('getTime.html', name=name, times=times)
 
 @app.route('/madeAppointment')
 def madeAppointment():
 
-    # Need function in fhir_utility to post this appointment to fhir
+    patient_id = request.cookies.get('patient_id')
+    county = request.cookies.get('county')
     name = request.cookies.get('patient_name')
     day = request.cookies.get('day')
     time = request.cookies.get('time')
 
+    postAppointment(patient_id, name, county, time, day)
+
     # Probably want an actual html page for this
-    return('Appointment for ' + str(name) + ' on ' + str(day) + 
-            ' at ' + str(time) + '\nThank you. Test')
+    return('Appointment for ' + str(name) + ' in ' + str(county) + ' on ' + str(day) + 
+            ' at ' + str(time) + '. Thank you.')
+
+@app.route('/viewAppointments')
+def viewAppointments():
+
+    appts = getAppointments()
+    return render_template('viewAppointments.html', appts=appts)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
