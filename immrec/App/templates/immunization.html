@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="stylesheet" type = "text/css" href="{{ url_for('static',filename='styles/styles.css') }}">
+    <link rel="stylesheet" type = "text/css" href="{{ url_for('static',filename='styles/styles_immun.css') }}">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <script src="{{ url_for('static',filename='styles/scripts.js') }}"></script>
     <meta charset="UTF-8">
@@ -10,15 +10,56 @@
 <body>
     <div id="mainPicture">
         <!--<div class="picture">-->
-        <div id="headerTitle">{{fname}} {{lname}}</div>
-        <div id="headerSubtext">Admission (999999)</div>
+        <div id="headerTitle" style="color:black;font-size:18px;">COVID-19 Immunization for:</div>
+        <div id="headerTitle">{{fname}} {{lname}}</div><br>
+        <div id="headerSubtext">ADMISSION#: <span style="color: black">(999999)</span>, DOB:<span style="color: black"> {{birthtime}}</span>, SEX:<span style="color: black"> {{gender}}</span>, ADDRESS:<span style="color: black"> {{address}} {{city}}, {{state}} {{postalcode}}</span></div>
 
     </div>
+   
 
+   
     <div class="contentBox">
         <div class="innerBox">
             <div class="mainbody">
+                <h1>Answer the following:</h1>
                 <form method="post">
+                    <label for="patientinfoconfirm">Is above Patient Information Confirmed?*</label>
+                        <input type = 'radio' name = 'patientinfoconfirm' value = 'Yes' required> Yes    
+                        <input type = 'radio' name = 'patientinfoconfirm' value = 'No'> No<br>
+                                         
+                    </select><br>
+                    <label for="educationconfirm">Patient Received Education?*</label>
+                        <input type = 'radio' name = 'educationconfirm' value = 'Yes'> Yes    
+                        <input type = 'radio' name = 'educationconfirm' value = 'No'> No<br>
+                    </select><br>
+
+                    <label for="status">Vaccination Status:*</label>
+                    <select id="status" name="vstatus" size="1" required>
+                        <option value="no">Not complete</option>
+                        <option value="yes">Complete</option>
+                        <option value="no">Error-Found</option>
+                    </select><br><br>
+
+                    <label for="site">Site of Vaccination:</label>             
+                    <select id="site" name="vsite" size="1">
+                        <option value="no">Right arm</option>
+                        <option value="yes">Left arm</option>
+                        <option value="yes">Other location</option>
+                        <option value="yes">N/A</option>
+                    </select><br><br>
+
+
+                    <label for="reaction">Reaction Reported?*</label>
+                        <input type = 'radio' name = 'reaction' value = 'Yes' required> Yes    
+                        <input type = 'radio' name = 'reaction' value = 'No'> No<br><br>
+                   
+                    <label for="reactionTrue">If yes, what reaction?</label>
+                
+                    </textarea><br>
+                    <textarea name="reactionNotes" style = "width:300px; height:40px;" placeholder="Vaccine Reaction"></textarea><br><br>
+                
+                    <label for="otherNotes">Other additional notes:</label><br>
+                    <textarea name="notes" style="width:600px; height:80px;"placeholder="Enter notes"></textarea>
                     
                     <br><br><br><br>
                     <button type="submit" formmethod="post" class="custom-submit-btn" name="query">Create Immunization Record</button>
@@ -26,6 +67,6 @@
             </div>
         </div>
     </div>
-    
+
 </body>
 </html>

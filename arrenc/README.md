@@ -4,6 +4,7 @@ To Use:
 - install pip
 - pip install virtualenv - pip command to install virtualenv
 - navigate to arrenc folder
+- create a virtual environment
 - env\scripts\activate.bat -  windows command to activate virtual environment
 - pip install -r requirements.txt - pip command to install requirements
 - python group3.py - command to run web app
