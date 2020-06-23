@@ -2,9 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Coronavirus Mass Immunization Initiative: Appointment/Encounter with EHR Integration</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <title>Coronavirus: Mass Immunization Initiative</title>
+    <header>
+        <div class="container">
+          <h1 class="logo">Coronavirus Mass Immunization Initiative </h1>
+          <strong><nav>
+            <ul class="menu"> 
+              <li><a href="https://https://github.com/rickstroo/mis/">Find us on GitHub</a></li>
+            </ul>
+          </nav></strong>
+        </div>
+      </header>
+      <div class="container">
+        {% block content %}
+        {% endblock %}
+      </div>
     {% block head %}{% endblock %}
 </head>
 <body>
