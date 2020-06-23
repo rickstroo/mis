@@ -23,25 +23,43 @@
             <div class="mainbody">
                 <h1>Answer the following:</h1>
                 <form method="post">
+                    <label for="start">Confirm Today's Date: </label>
+                    <input type="date" id="start" name="startTime"><br><br>
+
                     <label for="patientinfoconfirm">Is above Patient Information Confirmed?*</label>
-                        <input type = 'radio' name = 'patientinfoconfirm' value = 'Yes' required> Yes    
-                        <input type = 'radio' name = 'patientinfoconfirm' value = 'No'> No<br>
-                                         
-                    </select><br>
+                    <input type='radio' name='patientinfoconfirm' value='Yes' required> Yes
+                    <input type='radio' name='patientinfoconfirm' value='No'> No<br><br>
+
+                    <label for="vaccineCode">Confirm name of vaccine:* </label>
+                    <select id='vaccineCode' name='vaccineCode' size="1" required>
+                        <option disabled selected value> -- select option -- </option>
+                        <option value='SARS1'> SARS-1</option>
+
+                    </select><br><br>
+                    <label for="lotNumber">Confirm LOT Number of vaccine:* </label>
+                    <select id='lotNumber' name='lotNumber' size="1" required>
+                        <option disabled selected value> -- select option -- </option>
+                        <option value='S1134'>S1134</option>
+                        <option value="S2277">S2277</option>
+
+
+                    </select><br><br>
                     <label for="educationconfirm">Patient Received Education?*</label>
-                        <input type = 'radio' name = 'educationconfirm' value = 'Yes'> Yes    
-                        <input type = 'radio' name = 'educationconfirm' value = 'No'> No<br>
+                    <input type='radio' name='educationconfirm' value='Yes'> Yes
+                    <input type='radio' name='educationconfirm' value='No'> No<br>
                     </select><br>
 
                     <label for="status">Vaccination Status:*</label>
                     <select id="status" name="vstatus" size="1" required>
+                        <option disabled selected value> -- select option -- </option>
                         <option value="no">Not complete</option>
                         <option value="yes">Complete</option>
                         <option value="no">Error-Found</option>
                     </select><br><br>
 
-                    <label for="site">Site of Vaccination:</label>             
+                    <label for="site">Site of Vaccination:</label>
                     <select id="site" name="vsite" size="1">
+                        <option disabled selected value> -- select option -- </option>
                         <option value="no">Right arm</option>
                         <option value="yes">Left arm</option>
                         <option value="yes">Other location</option>
@@ -50,17 +68,17 @@
 
 
                     <label for="reaction">Reaction Reported?*</label>
-                        <input type = 'radio' name = 'reaction' value = 'Yes' required> Yes    
-                        <input type = 'radio' name = 'reaction' value = 'No'> No<br><br>
-                   
+                    <input type='radio' name='reaction' value='Yes' required> Yes
+                    <input type='radio' name='reaction' value='No'> No<br><br>
+
                     <label for="reactionTrue">If yes, what reaction?</label>
-                
+
                     </textarea><br>
-                    <textarea name="reactionNotes" style = "width:300px; height:40px;" placeholder="Vaccine Reaction"></textarea><br><br>
-                
+                    <textarea name="reactionNotes" style="width:300px; height:40px;" placeholder="Vaccine Reaction"></textarea><br><br>
+
                     <label for="otherNotes">Other additional notes:</label><br>
-                    <textarea name="notes" style="width:600px; height:80px;"placeholder="Enter notes"></textarea>
-                    
+                    <textarea name="notes" style="width:600px; height:80px;" placeholder="Enter notes"></textarea>
+
                     <br><br><br><br>
                     <button type="submit" formmethod="post" class="custom-submit-btn" name="query">Create Immunization Record</button>
                 </form>
