@@ -39,7 +39,7 @@ def getCounty():
     else:
         name = request.cookies.get('patient_name')
 
-        counties = ['Adams', 'Ashland', 'Baron', 'Bayfield', 'Brown', 'Buffalo', 'Burnett',
+        counties = ['Adams', 'Ashland', 'Barron', 'Bayfield', 'Brown', 'Buffalo', 'Burnett',
                     'Calumet', 'Chippewa', 'Clark', 'Columbia', 'Crawford', 'Dane', 'Dodge',
                     'Door', 'Douglas', 'Dunn', 'Eau Claire', 'Florence', 'Fond du Lac', 'Forest',
                     'Grant', ' Green', 'Green Lake', 'Iowa', 'Iron', 'Jackson', 'Jefferson', 
@@ -99,7 +99,8 @@ def madeAppointment():
 
     # Probably want an actual html page for this
     return('Appointment for ' + str(name) + ' in ' + str(county) + ' on ' + str(day) + 
-            ' at ' + str(time) + '. Thank you.')
+            ' at ' + str(time) + '. You are preventing ' + str(getInfectionsPrevented(county)) + 
+            ' infections per day(?). Thank you.')
 
 @app.route('/viewAppointments')
 def viewAppointments():
