@@ -3,11 +3,11 @@ body {
     margin: 0;
     padding: 0;
     text-align: left;
-    font-family: "Adobe Garamond Pro Bold", Georgia, "Times New Roman", Times, serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 13px;
     color: royalblue;
     background-color: black;
-    background-image: url(flames.jpg);
+    background-image: url(blue.jpg);
     background-size: 880px 850px;
     background-repeat: repeat-x;
 }
@@ -53,7 +53,7 @@ h1{
     left: 40px;
     font-size: 40px;
     color: black;
-    font-family: "Adobe Garamond Pro Bold", Georgia, "Times New Roman", Times, serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #headerSubtext {
@@ -62,7 +62,7 @@ h1{
     left: 50px;
     font-size: 25px;
     color: royalblue;
-    font-family: "Adobe Garamond Pro Bold", Georgia, "Times New Roman", Times, serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 
@@ -86,9 +86,16 @@ h1{
         padding-bottom: 35px;
  }
 
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 .mainbody {
     padding: 10px;
-    font-family: Palatino;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 input[type="file"] {
@@ -127,10 +134,9 @@ option:hover {
 #footer {
     width: 670px;
     height: 16px;
-   
     text-align: center;
     font-size: 9px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #386172;
     padding-top: 5px;
 }

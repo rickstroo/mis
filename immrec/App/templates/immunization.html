@@ -10,11 +10,12 @@
 <body>
     <div id="mainPicture">
         <!--<div class="picture">-->
-        <div id="headerTitle" style="color:black;font-size:18px;">COVID-19 Immunization for:</div>
-        <div id="headerTitle">{{fname}} {{lname}}</div><br>
-        <div id="headerSubtext">ADMISSION#: <span style="color: black">(999999)</span>, DOB:<span style="color: black"> {{birthtime}}</span>, SEX:<span style="color: black"> {{gender}}</span>, ADDRESS:<span style="color: black"> {{address}} {{city}}, {{state}} {{postalcode}}</span></div>
-
-    </div>
+        <img src="/static/styles/siimlogo.png" align="right" width="165" height="75">
+        <img src="/static/styles/profPic.png" align="left" width="175" height="175">
+        <div id="headerTitle" style="color: midnightblue;font: size 13px;">COVID-19 Immunization </div>
+        <div id="headerTitle" style="color:royalblue;font: size 13px;">Patient: <span style="color: black">{{fname}} {{lname}}<br></span> </div><br>
+        <div id="headerSubtext">Admission#: <span style="color: black">999999<br></span>DOB: <span style="color: black">{{birthtime}}<br></span>SEX:<span style="color: black"> {{gender}}<br></span>ADDRESS:<span style="color: black"> {{address}} {{city}}, {{state}} {{postalcode}}<br></span></div>
+        <br><br><br>
    
 
    
@@ -50,7 +51,7 @@
                     </select><br>
 
                     
-                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                     <br><br>
                     <label for="status">Vaccination Status:*</label>
                     <select id="status" name="vstatus" size="1" required>
@@ -75,13 +76,14 @@
                     <label for="reactionTrue">If yes, what reaction?</label>
 
                     </textarea><br>
-                    <textarea name="reactionNotes" style="width:300px; height:40px;" placeholder="Vaccine Reaction"></textarea><br><br>
+                    <textarea name="reactionNotes" style="width:300px; height:40px;" placeholder="Describe reaction"></textarea><br><br>
 
                     <label for="otherNotes">Other additional notes:</label><br>
                     <textarea name="notes" style="width:600px; height:80px;" placeholder="Enter notes"></textarea>
 
                     <br><br>
-                    <button type="submit" formmethod="post" class="custom-submit-btn" name="query">Create Immunization Record</button>
+                    <button type="submit" formmethod="post" style="align-items: center; justify-content: center;" class="custom-submit-btn" name="query">Create Immunization Record</button>
+
                 </form>
             </div>
         </div>

@@ -3,11 +3,11 @@ body {
     margin: 0;
     padding: 0;
     text-align: left;
-    font-family: "Adobe Garamond Pro Bold", Georgia, "Times New Roman", Times, serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 13px;
     color: royalblue;
     background-color: black;
-    background-image: url(flames.jpg);
+    background-image: url(blue.jpg);
     background-size: 880px 850px;
     background-repeat: repeat-x;
 }
@@ -34,8 +34,9 @@ h1{
      
 #mainPicture {
     width: 770px;
-    height: 145px;
+    height: 175px;
     background-color: #FFFFFF;
+    display: inline-block;
 }
 
     #mainPicture .picture {
@@ -53,7 +54,7 @@ h1{
     left: 40px;
     font-size: 30px;
     color: black;
-    font-family: "Adobe Garamond Pro Bold", Georgia, "Times New Roman", Times, serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #headerSubtext {
@@ -62,7 +63,7 @@ h1{
     left: 50px;
     font-size: 13px;
     color: royalblue;
-    font-family: "Adobe Garamond Pro Bold", Georgia, "Times New Roman", Times, serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 
@@ -88,11 +89,17 @@ h1{
 
 .mainbody {
     padding: 10px;
-    font-family: Palatino;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 14px;
     color: black;
     font-weight: bold;
-    
+}
+
+button {
+    margin: auto;
+    display: block;
+    color: royalblue;
+    font-weight: bold;
 }
 
 input[type="file"] {
@@ -131,10 +138,9 @@ option:hover {
 #footer {
     width: 670px;
     height: 16px;
-   
     text-align: center;
     font-size: 9px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #386172;
     padding-top: 5px;
 }
