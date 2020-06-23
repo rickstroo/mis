@@ -21,7 +21,7 @@
     <div class="contentBox">
         <div class="innerBox">
             <div class="mainbody">
-                <h1>Answer the following:</h1>
+                <h1>Answer the following:</h1><br>
                 <form method="post">
                     <label for="start">Confirm Today's Date: </label>
                     <input type="date" id="start" name="startTime"><br><br>
@@ -49,6 +49,9 @@
                     <input type='radio' name='educationconfirm' value='No'> No<br>
                     </select><br>
 
+                    
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                    <br><br>
                     <label for="status">Vaccination Status:*</label>
                     <select id="status" name="vstatus" size="1" required>
                         <option disabled selected value> -- select option -- </option>
@@ -79,7 +82,7 @@
                     <label for="otherNotes">Other additional notes:</label><br>
                     <textarea name="notes" style="width:600px; height:80px;" placeholder="Enter notes"></textarea>
 
-                    <br><br><br><br>
+                    <br><br>
                     <button type="submit" formmethod="post" class="custom-submit-btn" name="query">Create Immunization Record</button>
                 </form>
             </div>

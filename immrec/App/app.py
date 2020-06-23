@@ -61,6 +61,9 @@ def immunization(): #creating Immunization Resource from user input
         reactionNotes = request.form['reactionNotes']
         otherNotes = request.form['notes']
         # placeholder printing data from input to console
+
+        return redirect(url_for('search'))
+
         print(patientinfoconfirm)
         print(educationconfirm)
         print(vaccinestatus)
