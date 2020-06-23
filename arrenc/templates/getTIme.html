@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block body %}
+
+<h2>Hello, {{ name }}. Please select the time for your appointment.</h2>
+<form action="{{ url_for('getTime') }}" method="POST">
+      <select name="time">
+        <option selected></option>
+        {% for time in times %}
+        <option value="{{time}}">{{time}}</option>
+        {% endfor %}
+      </select>
+    <button class="button execute" name="submit" value="submit">Submit</button>
+  </form>
+
+{% endblock %}

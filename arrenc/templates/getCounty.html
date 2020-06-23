@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block body %}
+
+<h2>Hello, {{ name }}. Please select your County.</h2>
+<form action="{{ url_for('getCounty') }}" method="POST">
+      <select name="county">
+        <option selected></option>
+        {% for county in counties %}
+        <option value="{{county}}">{{county}}</option>
+        {% endfor %}
+      </select>
+    <button class="button execute" name="submit" value="submit">Submit</button>
+  </form>
+
+{% endblock %}
