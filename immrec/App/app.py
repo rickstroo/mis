@@ -59,24 +59,47 @@ def immunization(): #creating Immunization Resource from user input
         # return 'Done'
         # return render_template('immunization.html')
         patientinfoconfirm = request.form['patientinfoconfirm']
+        print(patientinfoconfirm)
         educationconfirm = request.form['educationconfirm']
+        print(educationconfirm)
         vaccinestatus = request.form['vstatus']
+        print(vaccinestatus)
         site = request.form['vsite']
+        print(site)
         reaction = request.form['reaction']
+        print(reaction)
         reactionNotes = request.form['reactionNotes']
+        print(reactionNotes)
         otherNotes = request.form['notes']
+        print(otherNotes)
         # placeholder printing data from input to console
+
+        appDict = OrderedDict()
+        appDict['resourceType'] = 'Immunization'
+        appDict['id'] = 'immun123'
+        appDict['status'] = vaccinestatus  # user input
+        appDict['vaccineCode'] = '61'
+        appDict['patient'] = {'reference': 'Patient/'+idd}
+        appDict['occurrence'] = {'occurenceDateTime': '2020-06-22', 'occurrenceString': 'idk'}
+        appDict['lotNumber'] = 'COB678'  # make up
+        appDict['site'] = site  # user input
+        appDict['performer'] = {'function': 'AP', 'actor': 'Practitioner/siimmd'}
+        if educationconfirm == 'yes':
+            appDict['education'] = {'presentationDate': '2020-06-22'}  # user input
+        appDict['note'] = otherNotes  # user input
+        appDict['protocolApplied'] = {'doseNumberPositiveInt': 1, 'doseNumberString': 'one'}
+
+        io = StringIO()
+        json.dump(appDict, io, indent=2)
+        #print(io.getvalue())
+
+        response = postNewImmunization(urlv, HEADERS, io.getvalue())
+        print(response.text)
 
         return redirect(url_for('search'))
 
-        print(patientinfoconfirm)
-        print(educationconfirm)
-        print(vaccinestatus)
-        print(site)
-        print(reaction)
-        print(reactionNotes)
-        print(otherNotes)
     ###########
+
 
     return render_template("immunization.html", fname = d['given'], lname = d['family'],address=d['address'], city=d['city'],
                                        state=d['state'],
