@@ -49,7 +49,25 @@ def immunization(): #creating Immunization Resource from user input
         #print(dict['birthtime'])#printed out on command line for checks
 
     ###########
-
+    if request.method == 'POST':
+        # request.form.get('patientinfoconfirm'))
+        # return 'Done'
+        # return render_template('immunization.html')
+        patientinfoconfirm = request.form['patientinfoconfirm']
+        educationconfirm = request.form['educationconfirm']
+        vaccinestatus = request.form['vstatus']
+        site = request.form['vsite']
+        reaction = request.form['reaction']
+        reactionNotes = request.form['reactionNotes']
+        otherNotes = request.form['notes']
+        # placeholder printing data from input to console
+        print(patientinfoconfirm)
+        print(educationconfirm)
+        print(vaccinestatus)
+        print(site)
+        print(reaction)
+        print(reactionNotes)
+        print(otherNotes)
     ###########
 
     return render_template("immunization.html", fname = dict['given'], lname = dict['family'],address=dict['address'], city=dict['city'],
